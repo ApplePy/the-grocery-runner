@@ -1,0 +1,7 @@
+/* CSS declarations go here */
+
+a:hover, i:hover
+{
+    color: inherit !important;
+    text-decoration: none !important;
+}
