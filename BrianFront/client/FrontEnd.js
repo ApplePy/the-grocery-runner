@@ -2,13 +2,20 @@
 var color = "red";
 Session.set("valid", false);
 Session.set("activateWarningText", false);
+Session.set("input", false);
+inputText = "";
 
 Meteor.subscribe("grocerylist");
 
 Template.body.helpers({
     DisplayList: function ()
     {
-        return GroceryList.find({}, {sort: {listName: 1}});
+        if (Session.get("input") == false) {
+            return GroceryList.find({}, {sort: {name: 1}});
+        }
+        else {
+            return GroceryList.find({name: inputText}, {sort: {name: 1}});
+        }
     }
 });
 
@@ -60,7 +67,7 @@ Template.main.events(
                 Session.set("activateWarningText",true);
             }
             else {
-                //Meteor.call("addToDatabase", whatever);
+                Meteor.call("nList", document.getElementById("listName").innerText); //EXPERIMENTAL
                 //Meteor.call("sendInvitations", emailsarray);
                 //Route to next page
             }
@@ -83,8 +90,24 @@ Template.mainHead.events(
         {
             var frm = document.getElementById("searchForm");
             frm.reset();  // Reset
+            Session.set("input", false);
             return false;
-        }
+        },
+        'keypress #search': function(event, template) {
+            Session.set("input",false); // Must stay!
+        },
+        'click #searchButton': function(event, template) {
+            Session.set("input", true);
+            inputText = template.find("#search").value;
+            console.log(inputText);
+            event.preventDefault();
+        },
+        'submit form': function(event, template) {
+            Session.set("input", true);
+            inputText = template.find("#search").value;
+            console.log(inputText);
+            event.preventDefault();
+        },
     }
 );
 

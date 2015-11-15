@@ -1,6 +1,6 @@
 GroceryList = new Mongo.Collection("grocerylist");
 
-var ItemDesignation = {
+ItemDesignation = {
     OWNER : 1,
     HOUSEHOLD : 2
 }

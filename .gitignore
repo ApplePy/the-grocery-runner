@@ -2,3 +2,4 @@ workspace.xml
 BrianFront/.idea/deployment.xml
 meteor_packages_auto_import_browser.xml
 .iml
+*.iml
