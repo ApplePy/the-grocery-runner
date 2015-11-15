@@ -1,12 +1,15 @@
 // counter starts at 0
 var color = "red";
+Meteor.subscribe("grocerylist");
+
 
 Template.body.helpers({
     DisplayList: function ()
     {
-        return GroceryList.find({});
+        return GroceryList.find({}, {sort: {listName: 1}});
     }
 });
+
 
 Template.main.helpers(
     {
