@@ -41,19 +41,16 @@ Template.main.events(
                     break;
                 }
             }
-            console.log(Session.get("valid"));
         },
 
-        'submit #addNewList': function(event)
+        'submit #addNewList': function(event, template)
         {
-            event.preventDefault();
-
             if (Session.get("valid") == false) {
                 //event.preventDefault();
                 Session.set("activateWarningText",true);
             }
             else {
-                Meteor.call("nList", document.getElementById("listName").innerText); //EXPERIMENTAL
+                Meteor.call("nList", template.find("#listName").value); //EXPERIMENTAL
                 //Meteor.call("sendInvitations", emailsarray);
                 //Route to next page
                 // Close the window if input is correct
@@ -62,9 +59,7 @@ Template.main.events(
                 // David, implement your submissions here
 
             }
-
-            console.log(event);
-
+            event.preventDefault();
             return 0;
 
         },
@@ -79,8 +74,7 @@ Template.main.events(
 
 Template.mainHead.helpers(
     {
-        color: function ()
-        {
+        color: function () {
             return color;
         }
     }
@@ -95,21 +89,18 @@ Template.mainHead.events(
             Session.set("input", false);
             return false;
         },
+
         'keypress #search': function(event, template) {
-            Session.set("input",false); // Must stay!
+            Session.set("input",false); // Must stay! Allows search to operate still after user changes their mind
         },
+
         'click #searchButton': function(event, template) {
-            Session.set("input", true);
-            inputText = template.find("#search").value;
-            console.log(inputText);
-            event.preventDefault();
+            performSearch(event, template);
         },
+
         'submit form': function(event, template) {
-            Session.set("input", true);
-            inputText = template.find("#search").value;
-            console.log(inputText);
-            event.preventDefault();
-        },
+            performSearch(event, template);
+        }
     }
 );
 
@@ -127,16 +118,14 @@ Template.mainListCards.helpers(
         {
             return color;
         },
-
-        listTitle: function ()
+        /*listTitle: function ()
         {
             return this.title;
         },
-
         listInfo: function ()
         {
             return this.info;
-        }
+        }*/
     }
 );
 
@@ -150,3 +139,10 @@ Template.HomeScreen.helpers({
         }
     }
 });
+
+function performSearch (event, template) {
+    Session.set("input", true);
+    inputText = template.find("#search").value;
+    console.log(inputText);
+    event.preventDefault();
+}

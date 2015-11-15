@@ -20,3 +20,19 @@ function ListItems (name, quantity, owner, designation) {
 
     this.price = 0;
 }
+
+Meteor.methods({
+    nList: function(input) {
+        var pin = Math.floor(Math.random() * 100000 + 1);
+
+        // Ensure no duplicates
+        while (GroceryList.find({pin: pin}).count() > 0) {
+            pin = Math.floor(Math.random() * 100000 + 1);
+        }
+
+        GroceryList.insert({name: input, pin: pin});
+        console.log(input);
+        console.log(pin);
+        console.log(GroceryList.find({}).count());
+    }
+});
