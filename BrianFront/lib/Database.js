@@ -1,5 +1,5 @@
 GroceryList = new Mongo.Collection("grocerylist");
-listViewTest = new Mongo.Collection("listViewTest");
+ListSubs = new Mongo.Collection("listsubs");
 
 ItemDesignation = {
     OWNER : 1,
@@ -24,6 +24,7 @@ function ListItems (name, quantity, owner, designation) {
 
 Meteor.methods({
     nList: function(input) {
+
         var pin = Math.floor(Math.random() * 100000 + 1);
 
         // Ensure no duplicates
@@ -35,5 +36,15 @@ Meteor.methods({
         console.log(input);
         console.log(pin);
         console.log(GroceryList.find({}).count());
+
+        ListSubs.insert({user: this._id, subs:[pin]});
+    },
+    subscribe: function(user, pinID) {
+        if (GroceryList.find({pin: pinID}).count() == 0) {
+            return -1;
+        }
+        else {
+            ListSubs.update({user: user},{$set: {pin: ListSubs.find({pin: pinID}).subs.concat(pinID)}});
+        }
     }
 });
