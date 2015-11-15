@@ -66,6 +66,12 @@ Template.main.events(
 
             return 0;
 
+        },
+
+        "click #addButtonBottomRight" : function()
+        {
+            $('#modal1').openModal();
+            return 0;
         }
     }
 );

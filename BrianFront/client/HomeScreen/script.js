@@ -9,5 +9,4 @@ $(document).ready(function(){
 //            complete: function() { alert('Closed'); } // Callback for Modal close
         }
     );
-
 });
