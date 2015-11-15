@@ -1,5 +1,5 @@
 
-Template.listViewCollection.helpers(
+Template.shopViewCollection.helpers(
     {
         displayListItems : function()
         {
@@ -21,14 +21,14 @@ Template.listViewCollection.helpers(
     }
 );
 
-Template.paymentBar.helpers({
+Template.shoppaymentBar.helpers({
     color : function()
     {
         return color;
     }
 });
 
-Template.listViewHeader.helpers({
+Template.shopViewHeader.helpers({
     color : function()
     {
         return color;

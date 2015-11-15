@@ -13,4 +13,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('ul.tabs').tabs();
+    $("#login-sign-in-link").html("<i class='material-icons waves-effect waves-light'>dehaze</i>");
 });
+
+
+
+
+

@@ -1,13 +1,12 @@
-<template name="listViewHeader">
+<template name="shopViewHeader">
 
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper {{color}}">
-                <a href="{{pathFor 'HomeScreen'}}">
+
                 <div class="col-xs-4">
                     <i class="material-icons">arrow_back</i>
                 </div>
-                </a>
                 <div class="col-xs-4">
                     <center>
                         <i class="material-icons">perm_identity</i>
@@ -24,12 +23,15 @@
     </div>
 </template>
 
-<template name="listViewCollection">
+<template name="shopViewCollection">
     <ul class="collection">
         {{#each displayListItems}}
             <li class="collection-item dismissable">
                 <div>
-                    <span class="s6 itemName">
+                    <span class="s2" style="display: block; float: left;">
+                        <input type="checkbox" name="checkThing" value="LOL">
+                    </span>
+                    <span class="s4 itemName">
                         {{itemName}}
                     </span>
 
@@ -65,10 +67,10 @@
 
 <template name="paymentBar">
     <div class="navbar-fixed">
-        <a href="{{pathFor 'ShopView'}}">
+        <a href="{{pathFor 'ListView'}}">
             <nav style="bottom: 0px; opacity: 0.7;">
                 <div class="nav-wrapper {{color}}">
-                    <a href="{{pathFor 'ShopView'}}" class="brand-logo">Start Shopping</a>
+                    <a href="{{pathFor 'ListView'}}" class="brand-logo">Done</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>

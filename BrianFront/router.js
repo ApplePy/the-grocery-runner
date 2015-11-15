@@ -7,5 +7,6 @@ Router.map(
     {
         this.route('HomeScreen', {path: '/'});
         this.route('ListView', {path: '/ListView'});
+        this.route('ShopView', {path: '/ShopView'});
     }
 );
