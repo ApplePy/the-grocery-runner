@@ -1,0 +1,47 @@
+<!--Template for the layout which will appear in all webpages-->
+<template name="main">
+    <h1>This is the main layout header</h1>
+    {{> yield}}
+    <hr>
+    <a href="/">Home</a>
+    <a href="/list">List</a>
+    <a href="/register">Register</a>
+    <p>This is the main layout footer</p>
+</template>
+
+<!--Template for homepage-->
+<template name="home">
+    <h2>This is the homepage</h2>
+</template>
+
+<!--Template for List webpage-->
+<template name="list">
+<div class="container">
+    <header>
+        <h1>Todo List</h1>
+
+        <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+    </header>
+    <ul>
+        {{#each tasks}}
+            {{> task}}
+        {{/each}}
+    </ul>
+</div>
+</template>
+
+<!--Template for task webpage-->
+<template name="task">
+    <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{text}}</span>
+    </li>
+</template>
+
+<!--Template for register webpage-->
+<template name="register">
+    <h2>Register</h2>
+</template>
