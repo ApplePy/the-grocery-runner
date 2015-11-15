@@ -1,0 +1,12 @@
+<template name="HomeScreen">
+    {{> mainHead}}
+
+    <div class="container">
+        <div class="top-down">
+            {{#each DisplayList}}
+                {{> mainListCards}}
+            {{/each}}
+        </div>
+        {{> main}}
+    </div>
+</template>

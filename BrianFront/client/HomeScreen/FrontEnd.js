@@ -6,10 +6,7 @@ Session.set("activateWarningText", false);
 Meteor.subscribe("grocerylist");
 
 Template.body.helpers({
-    DisplayList: function ()
-    {
-        return GroceryList.find({}, {sort: {listName: 1}});
-    }
+
 });
 
 
@@ -116,6 +113,15 @@ Template.mainListCards.helpers(
         listInfo: function ()
         {
             return this.info;
+        }
+    }
+);
+
+Template.HomeScreen.helpers(
+    {
+        DisplayList: function ()
+        {
+            return GroceryList.find({}, {sort: {listName: 1}});
         }
     }
 );
