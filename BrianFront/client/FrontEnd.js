@@ -48,22 +48,27 @@ Template.main.events(
             }
             console.log(Session.get("valid"));
         },
-        'submit #emailInput': function(event) {
+
+        'submit #addNewList': function(event)
+        {
             event.preventDefault();
-        },
-        'submit #listName': function(event) {
-            event.preventDefault();
-        },
-        'click #modalSubmit': function(event) {
+
             if (Session.get("valid") == false) {
                 //event.preventDefault();
                 Session.set("activateWarningText",true);
             }
             else {
-                //Meteor.call("addToDatabase", whatever);
-                //Meteor.call("sendInvitations", emailsarray);
-                //Route to next page
+                // Close the window if input is correct
+                $('#modal1').closeModal();
+
+                // David, implement your submissions here
+
             }
+
+            console.log(event);
+
+            return 0;
+
         }
     }
 );
