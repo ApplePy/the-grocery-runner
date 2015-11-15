@@ -1,5 +1,5 @@
 // counter starts at 0
-var color = "red";
+color = "red";
 Session.set("valid", false);
 Session.set("activateWarningText", false);
 Session.set("input", false);
