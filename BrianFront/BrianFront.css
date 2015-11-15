@@ -37,4 +37,10 @@ nav
     padding-right: 10px !important;
 }
 
+.modal-footer button
+{
+    background-color: transparent;
+    border: none;
+}
+
 /*End of making the Modal look like a G*/
