@@ -1,5 +1,6 @@
 GroceryList = new Mongo.Collection("grocerylist");
 ListSubs = new Mongo.Collection("listsubs");
+listViewTest = new Mongo.Collection("listViewTest");
 
 ItemDesignation = {
     OWNER : 1,

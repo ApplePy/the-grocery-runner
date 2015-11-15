@@ -28,10 +28,14 @@
         {{#each displayListItems}}
             <li class="collection-item dismissable">
                 <div>
-                    <span class="s2" style="display: block; float: left;">
-                        <input type="checkbox" name="checkThing" value="LOL">
-                    </span>
+
+
                     <span class="s4 itemName">
+                        <form>
+                            <input type="checkbox" style="left: 10px;
+    visibility: visible;">
+                        </form>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         {{itemName}}
                     </span>
 
@@ -40,20 +44,11 @@
                     </span>
 
                     <span class="s3 itemQuantity">
-                        <div id="plus"
-                             class=" btn-floating btn-tiny waves-effect waves-light {{color}}">
-
-                            <i class="material-icons">add</i>
-
-                        </div>
-                        {{itemQuantity}}
-                        <div id="minus"
-                             class=" btn-floating btn-tiny waves-effect waves-light {{color}}">
-
-                            <i class="material-icons">remove</i>
-
-                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        {{itemQuantity}}&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;
                     </span>
+
 
                 </div>
             </li>
@@ -78,4 +73,6 @@
         </a>
     </div>
 </template>
+
+
 

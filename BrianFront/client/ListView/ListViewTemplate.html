@@ -39,24 +39,41 @@
                     </span>
 
                     <span class="s3 itemQuantity">
-                        <div id="plus"
-                             class=" btn-floating btn-tiny waves-effect waves-light {{color}}">
-
-                            <i class="material-icons">add</i>
-
-                        </div>
-                        {{itemQuantity}}
-                        <div id="minus"
-                             class=" btn-floating btn-tiny waves-effect waves-light {{color}}">
-
-                            <i class="material-icons">remove</i>
-
-                        </div>
+                        +&nbsp;&nbsp;&nbsp;
+                        {{itemQuantity}}&nbsp;&nbsp;&nbsp;
+                        -&nbsp;&nbsp;&nbsp;
                     </span>
 
                 </div>
             </li>
         {{/each}}
+
+        <li class="collection-item">
+            <div>
+                <form id="addGItem">
+
+                    <span class="s6 itemName">
+                        <input placeholder="Grocery Item" id="groceryItem" type="text">
+                    </span>
+
+                    <span class="xs3 itemOwner">
+                        <input placeholder="Owner" id="Owner" type="text">
+
+                    </span>
+
+                    <span class="s3 itemQuantity">
+                        <input placeholder="Quantity" id="Quantity" type="text">
+                    </span>
+
+                    <div id="gSubmit"
+                         class="btn-floating btn-large waves-effect waves-light {{color}}">
+                        <button type="submit" form="addGItem" value="Submit" style="background: transparent; border: solid 0px;">
+                            <i class="material-icons">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </li>
     </ul>
 
     <form>
