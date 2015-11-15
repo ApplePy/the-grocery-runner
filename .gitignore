@@ -1,6 +1,2 @@
-workspace.xml
-BrianFront/.idea/deployment.xml
-meteor_packages_auto_import_browser.xml
-.iml
-*.iml
-BrianFront/.idea/BrianFront.iml
+*/.idea/workspace.xml
+*/.idea/tasks.xml
