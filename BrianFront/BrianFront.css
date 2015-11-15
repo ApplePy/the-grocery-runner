@@ -16,3 +16,25 @@ nav
 {
     margin-top: 70px;
 }
+
+/*Makes the Modal look like a G*/
+
+.modal-content, .modal-footer
+{
+    border: none !important;
+    background-color: #FAFAFA !important;
+}
+
+.modal-content
+{
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+}
+
+.modal-footer
+{
+    padding-bottom: 75px !important;
+    padding-right: 10px !important;
+}
+
+/*End of making the Modal look like a G*/
