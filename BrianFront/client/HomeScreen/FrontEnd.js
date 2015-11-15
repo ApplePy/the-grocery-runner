@@ -7,18 +7,6 @@ inputText = "";
 
 Meteor.subscribe("grocerylist");
 
-Template.body.helpers({
-    DisplayList: function ()
-    {
-        if (Session.get("input") == false) {
-            return GroceryList.find({}, {sort: {name: 1}});
-        }
-        else {
-            return GroceryList.find({name: inputText}, {sort: {name: 1}});
-        }
-    }
-});
-
 
 Template.main.helpers(
     {
@@ -152,11 +140,13 @@ Template.mainListCards.helpers(
     }
 );
 
-Template.HomeScreen.helpers(
-    {
-        DisplayList: function ()
-        {
-            return GroceryList.find({}, {sort: {listName: 1}});
+Template.HomeScreen.helpers({
+    DisplayList: function () {
+        if (Session.get("input") == false) {
+            return GroceryList.find({}, {sort: {name: 1}});
+        }
+        else {
+            return GroceryList.find({name: inputText}, {sort: {name: 1}});
         }
     }
-);
+});
