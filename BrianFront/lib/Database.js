@@ -1,0 +1,1 @@
+GroceryList = new Mongo.Collection("grocerylist");
