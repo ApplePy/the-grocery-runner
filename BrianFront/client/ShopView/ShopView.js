@@ -28,6 +28,15 @@ Template.shoppaymentBar.helpers({
     }
 });
 
+Template.shoppaymentBar.events({
+    'click #payPallSuccess': function()
+    {
+        alert("Paypal Payment Successful!");
+    }
+});
+
+id="payPallSuccess"
+
 Template.shopViewHeader.helpers({
     color : function()
     {
