@@ -20,8 +20,3 @@ function ListItems (name, quantity, owner, designation) {
 
     this.price = 0;
 }
-
-function GroceryListObject(listName) {
-    this.name = listName;
-    this.Items = [];
-}
