@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <input placeholder="Example List" id="listName" type="text" class="validate">
-                            <label for="listName">List Name</label>
+                            <label for="listName" data-error="{{#if activateWarningTextFunc}}Please fill in a list name{{/if}}">List Name</label>
                         </div>
                     </div>
 
@@ -34,8 +34,8 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea placeholder="exampleEmail@examplesite.com, exampleEmail@examplesite.com ..." id="emailInput" class="materialize-textarea"></textarea>
-                                    <label for="textarea1">Email</label>
+                                    <input placeholder="exampleEmail@examplesite.com, exampleEmail@examplesite.com ..." id="emailInput" type="text" class="{{#if validFunc}}valid{{else}}invalid{{/if}}">
+                                    <label for="textarea1" data-error="{{#if activateWarningTextFunc}}Please enter valid email address(es){{/if}}">Email</label>
                                 </div>
                             </div>
                         </form>
@@ -45,9 +45,9 @@
             <!--End submit New List Form-->
         </div>
         <div class="modal-footer ">
-            <a href="" class=" modal-action modal-close btn-floating btn-large waves-effect waves-light {{color}}">
+            <div id="modalSubmit" class="{{#if validFunc}}modal-close{{/if}} modal-action btn-floating btn-large waves-effect waves-light {{color}}">
                 <i class="material-icons">send</i>
-            </a>
+            </div>
         </div>
     </div>
 </template>

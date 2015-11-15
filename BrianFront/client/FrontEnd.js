@@ -1,7 +1,9 @@
 // counter starts at 0
 var color = "red";
-Meteor.subscribe("grocerylist");
+Session.set("valid", false);
+Session.set("activateWarningText", false);
 
+Meteor.subscribe("grocerylist");
 
 Template.body.helpers({
     DisplayList: function ()
@@ -21,13 +23,48 @@ Template.main.helpers(
         color: function ()
         {
             return color;
+        },
+        activateWarningTextFunc: function() {
+            return Session.get("activateWarningText");
+        },
+        validFunc: function() {
+            return Session.get("valid");
         }
     }
 );
 
 Template.main.events(
     {
-
+        'keyup #emailInput': function(event) {
+            var splitArray = $(event.target).val().split(',');
+            for (var num in splitArray) {
+                if (Meteor.myFunctions.validateEmail(splitArray[num]) === true) {
+                    Session.set("valid",true);
+                }
+                else {
+                    Session.set("valid",false);
+                    break;
+                }
+            }
+            console.log(Session.get("valid"));
+        },
+        'submit #emailInput': function(event) {
+            event.preventDefault();
+        },
+        'submit #listName': function(event) {
+            event.preventDefault();
+        },
+        'click #modalSubmit': function(event) {
+            if (Session.get("valid") == false) {
+                //event.preventDefault();
+                Session.set("activateWarningText",true);
+            }
+            else {
+                //Meteor.call("addToDatabase", whatever);
+                //Meteor.call("sendInvitations", emailsarray);
+                //Route to next page
+            }
+        }
     }
 );
 
@@ -53,7 +90,9 @@ Template.mainHead.events(
 
 Template.mainListCards.events(
     {
-
+        "click .card": function(event) {
+            Session.set("ListID", this._id);
+        }
     }
 );
 
